@@ -20,6 +20,8 @@
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.5.0",
+    "react-native-svg": "^12.1.0",
+    "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.3.7",
     "react-navigation-stack": "^2.3.12",
     "realm": "^5.0.0"

@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {View, FlatList, Text, Button, StyleSheet} from 'react-native';
 
-//import EntryListItem from './EntryListItem';
+import EntryListItem from './EntryListItem';
+
+import Container from '../Core/Container';
 
 import {getEntries} from '../../services/Entries';
 
-const EntryList = ({navigation}) => {
+const EntryList = () => {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
@@ -18,37 +20,29 @@ const EntryList = ({navigation}) => {
   }, []);
 
   return (
-    <View>
-      <Text style={styles.title}>Últimos Lançamentos</Text>
+    <Container
+      title="Últimos lançamentos"
+      actionLabelText="Últimos 7 dias"
+      actionButtonText="Ver mais"
+      onPressActionButton={() => {}}>
       <FlatList
         data={entries}
         keyExtractor={(item) => item.id}
-        renderItem={({item}) => (
-          <View>
-            <Text style={styles.entry}>
-              {item.description}: ${item.amount}
-            </Text>
-            <Button
-              title={item.id}
-              onPress={() => {
-                navigation.navigate('NewEntry', {entry: item});
-              }}
-            />
-          </View>
+        renderItem={({item, index}) => (
+          <EntryListItem
+            entry={item}
+            isFirstItem={index === 0}
+            isLastItem={index === entries.length - 1}
+          />
         )}
       />
-    </View>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: '700',
-    marginVertical: 10,
   },
 });
 
