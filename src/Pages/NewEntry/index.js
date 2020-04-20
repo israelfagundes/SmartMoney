@@ -1,20 +1,26 @@
 import React, {useState} from 'react';
-import {View, TextInput, Button, StyleSheet} from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 
 import BalanceLabel from '../../Components/BalanceLabel';
+import NewEntryInput from './NewEntryInput';
+import NewEntryCategoryPicker from './NewEntryCategoryPicker';
 
 import {saveEntry} from '../../services/Entries';
 import {deleteEntry} from '../../services/Entries';
 
+import Colors from '../../styles/Colors';
+
 const NewEntry = ({navigation}) => {
-  const currentBalance = 2064.35;
   const entry = navigation.getParam('entry', {
     id: null,
     amount: '0.00',
     entryAt: new Date(),
+    category: {id: null, name: 'Selecione'},
   });
 
-  const [amount, setAmount] = useState(`${entry.amount}`);
+  const [debit, setDebit] = useState(entry.amount <= 0);
+  const [amount, setAmount] = useState(entry.amount);
+  const [category, setCategory] = useState(entry.category);
 
   const isValid = () => {
     if (parseFloat(amount) !== 0) {
@@ -27,6 +33,7 @@ const NewEntry = ({navigation}) => {
   const onSave = () => {
     const data = {
       amount: parseFloat(amount),
+      category: category,
     };
     console.log('NewEntry :: save ', data);
     saveEntry(data, entry);
@@ -44,14 +51,18 @@ const NewEntry = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <BalanceLabel currentBalance={currentBalance} />
+      <BalanceLabel />
       <View>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setAmount(text)}
+        <NewEntryInput
           value={amount}
+          onChangeValue={setAmount}
+          onChangeDebit={setDebit}
         />
-        <TextInput style={styles.input} />
+        <NewEntryCategoryPicker
+          debit={debit}
+          category={category}
+          onChangeCategory={setCategory}
+        />
         <Button title="GPS" />
         <Button title="Camera" />
       </View>
@@ -72,7 +83,8 @@ const NewEntry = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
+    backgroundColor: Colors.background,
     padding: 10,
   },
   input: {

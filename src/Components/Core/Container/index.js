@@ -25,7 +25,7 @@ const Container = ({
             <TouchableOpacity
               style={styles.actionButton}
               onPress={onPressActionButton}>
-              <Icon name="insert-chart" style={styles.actionButtonIcon} />
+              <Icon name="insert-chart" size={13} style={styles.actionButtonIcon} />
               <Text style={styles.actionButtonText}>{actionButtonText}</Text>
             </TouchableOpacity>
           )}
@@ -43,13 +43,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.2)',
     margin: 5,
-    padding: 10,
+    paddingTop: 10,
+    paddingHorizontal: 25,
+    paddingBottom: 10,
   },
   title: {
     fontSize: 13,
     color: Colors.white,
     fontWeight: '700',
-    marginBottom: 5,
+    marginBottom: 10,
   },
   actionContainer: {
     flexDirection: 'row',
@@ -57,19 +59,20 @@ const styles = StyleSheet.create({
   },
   actionLabel: {
     fontSize: 12,
-    color: Colors.white,
+    color: Colors.metal,
   },
   actionButton: {
+    justifyContent: 'center',
     flexDirection: 'row',
   },
   actionButtonIcon: {
-    color: Colors.white,
+    color: Colors.metal,
     marginTop: 2,
     marginRight: 3,
   },
   actionButtonText: {
     fontSize: 12,
-    color: Colors.white,
+    color: Colors.metal,
   },
 });
 
