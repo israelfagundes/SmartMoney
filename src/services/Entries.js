@@ -6,7 +6,7 @@ import {getUUID} from './UUID';
 export const getEntries = async () => {
   const realm = await getRealm();
 
-  const entries = realm.objects('Entry');
+  const entries = realm.objects('Entry').sorted('entryAt', true);
 
   console.log('getEntries :: entries ', JSON.stringify(entries));
 
@@ -22,7 +22,8 @@ export const saveEntry = async (value, entry = {}) => {
       data = {
         id: value.id || entry.id || getUUID(),
         amount: value.amount || entry.amount,
-        entryAt: entry.entryAt || entry.entryAt,
+        entryAt: value.entryAt || entry.entryAt,
+        description: value.category.name || entry.category.name,
         isInit: false,
         category: value.category || entry.category,
       };
@@ -49,7 +50,7 @@ export const deleteEntry = async (entry) => {
   } catch (error) {
     console.error(
       'deleteEntry :: error on delete object ',
-      JSON.stringify(data),
+      JSON.stringify(entry),
     );
     Alert.alert('Erro ao excluir este lançamento.');
   }

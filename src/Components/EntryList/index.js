@@ -16,6 +16,7 @@ const EntryList = ({onEntryPress, onPressActionButton}) => {
       setEntries(data);
     }
     loadEntries();
+
     console.log('EntryList :: useEffect');
   }, []);
 

@@ -8,7 +8,7 @@ import {getDefaultCategories} from './Categories';
 export const getRealm = async () => {
   const realm = await Realm.open({
     schema: [CategorySchema, EntrySchema],
-    schemaVersion: 2,
+    schemaVersion: 3,
   });
 
   initDB(realm);
@@ -43,7 +43,7 @@ export const initDB = (realm) => {
   }
 };
 
-export const dropDB = realm => {
+export const dropDB = (realm) => {
   console.log('dropDB :: dropping db...');
   realm.write(() => {
     realm.deleteAll();
