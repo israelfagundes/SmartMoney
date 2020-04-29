@@ -3,10 +3,12 @@ import {View, Text, StyleSheet} from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
 
+import useBalance from '../../Hooks/useBalance';
+
 import Colors from '../../styles/Colors';
 
 const BalanceLabel = () => {
-  const currentBalance = 2064.65;
+  const [balance] = useBalance();
 
   return (
     <View style={styles.container}>
@@ -14,7 +16,7 @@ const BalanceLabel = () => {
       <LinearGradient
         style={styles.panel}
         colors={['#756fc3', Colors.seaBlue, Colors.seaBlue]}>
-        <Text style={styles.value}>{currentBalance}</Text>
+        <Text style={styles.value}>{balance}</Text>
       </LinearGradient>
     </View>
   );

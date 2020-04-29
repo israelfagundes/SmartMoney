@@ -12,8 +12,7 @@ import NewEntryCategoryPicker from './NewEntryCategoryPicker';
 import NewEntryDatePicker from './NewEntryDatePicker';
 import NewEntryDeleteAction from './NewEntryDeleteAction';
 
-import {saveEntry} from '../../services/Entries';
-import {deleteEntry} from '../../services/Entries';
+import useEntries from '../../Hooks/useEntries';
 
 import Colors from '../../styles/Colors';
 
@@ -25,6 +24,8 @@ const NewEntry = ({navigation}) => {
     category: {id: null, name: 'Selecione'},
   });
 
+  const [, saveEntry, deleteEntry] = useEntries();
+  
   const [debit, setDebit] = useState(entry.amount <= 0);
   const [amount, setAmount] = useState(entry.amount);
   const [category, setCategory] = useState(entry.category);

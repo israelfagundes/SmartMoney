@@ -11,6 +11,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
   const bulletLineHeight = isLastItem ? 25 : 50;
   const showBulletLine = !(isFirstItem && isLastItem);
   const bulletColor = entry.category.color || Colors.white;
+  const date = entry.entryAt.toString();
 
   return (
     <TouchableOpacity
@@ -44,7 +45,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
           <Text style={styles.descriptionText}>{entry.description}</Text>
           <View style={styles.details}>
             <Icon style={styles.entryAtIcon} name="access-time" size={15} />
-            <Text style={styles.entryAtText}>{entry.entryAt.toString()}</Text>
+            <Text style={styles.entryAtText}>{date}</Text>
             {entry.address && (
               <>
                 <Icon style={styles.addressIcon} name="location-on" size={15} />
