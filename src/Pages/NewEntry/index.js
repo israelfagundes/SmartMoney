@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
-import {View, Button, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+
+import ActionFooter, {
+  ActionPrimaryButton,
+  ActionSecondaryButton,
+} from '../../Components/Core/ActionFooter';
 
 import BalanceLabel from '../../Components/BalanceLabel';
 import NewEntryInput from './NewEntryInput';
@@ -73,16 +78,15 @@ const NewEntry = ({navigation}) => {
           <NewEntryDeleteAction entry={entry} onOkPress={onDelete} />
         </View>
       </View>
-
-      <View>
-        <Button
-          title="Adicionar"
+      <ActionFooter>
+        <ActionPrimaryButton
+          title={entry.id ? 'Salvar' : 'Adicionar'}
           onPress={() => {
             isValid() && onSave();
           }}
         />
-        <Button title="Cancelar" onPress={onClose} />
-      </View>
+        <ActionSecondaryButton title="Cancelar" onPress={onClose} />
+      </ActionFooter>
     </View>
   );
 };
@@ -98,12 +102,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 20,
   },
-  
+
   formActionContainer: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     marginTop: 10,
-  }
+  },
 });
 
 export default NewEntry;

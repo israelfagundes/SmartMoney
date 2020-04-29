@@ -1,49 +1,135 @@
-import React from 'react';
-import {View, Button, StyleSheet} from 'react-native';
-import {Picker} from '@react-native-community/picker';
+import React, {useState} from 'react';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import ActionFooter, {
+  ActionPrimaryButton,
+} from '../../Components/Core/ActionFooter';
 
 import BalanceLabel from '../../Components/BalanceLabel';
 import EntrySummary from '../../Components/EntrySummary';
 import EntryList from '../../Components/EntryList';
+import RelativeDaysModal from '../../Components/Core/RelativeDaysModal';
+import CategoryModal from '../../Components/CategoryModal';
 
-const Report = () => {
-  const currentBalance = 2064.35;
+import Colors from '../../styles/Colors';
 
-  const entriesGrouped = [
-    {key: '1', description: 'Alimentação', amount: 200},
-    {key: '2', description: 'Combustível', amount: 12},
-    {key: '3', description: 'Aluguel', amount: 120},
-    {key: '4', description: 'Lazer', amount: 250},
-    {key: '5', description: 'Outros', amount: 1200},
-  ];
+const Report = ({navigation}) => {
+  const [relativeDaysModalVisible, setRelativeDaysModalVisible] = useState(
+    false,
+  );
 
-  const entries = [
-    {key: '1', description: 'Padaria Asa Branca', amount: 10},
-    {key: '2', description: 'Supermercado Isadora', amount: 190},
-    {key: '3', description: 'Posto Ipiranga', amount: 210},
-  ];
+  const [categoryModalVisible, setCategoryModalVisible] = useState(false);
+
+  const [relativeDays, setRelativeDays] = useState(7);
+  const [category, setCategory] = useState({
+    id: null,
+    name: 'Todas as Categorias',
+  });
+
+  const onRelativeDaysPress = (item) => {
+    setRelativeDays(item);
+    onRelativeDaysClosePress();
+  };
+
+  const onCategoryPress = (item) => {
+    setCategory(item);
+    onCategoryClosePress();
+  };
+
+  const onRelativeDaysClosePress = () => {
+    setRelativeDaysModalVisible(false);
+  };
+
+  const onCategoryClosePress = () => {
+    setCategoryModalVisible(false);
+  };
 
   return (
-    <View>
-      <BalanceLabel currentBalance={currentBalance} />
-      <View>
-        <Picker>
-          <Picker.Item label="Todas as Categorias" />
-        </Picker>
-        <Picker>
-          <Picker.Item label="Últimos 7 dias" />
-        </Picker>
+    <View style={styles.container}>
+      <BalanceLabel />
+      <View style={styles.filtersContainer}>
+        <TouchableOpacity
+          style={styles.filterButton}
+          onPress={() => setCategoryModalVisible(true)}>
+          <Text style={styles.filterButtonText}>{category.name}</Text>
+          <Icon
+            name="keyboard-arrow-down"
+            size={20}
+            color={Colors.champagneDark}
+          />
+        </TouchableOpacity>
+        <CategoryModal
+          categoryType="all"
+          isVisible={categoryModalVisible}
+          onConfirm={onCategoryPress}
+          onCancel={onCategoryClosePress}
+        />
+        <TouchableOpacity
+          style={styles.filterButton}
+          onPress={() => {
+            setRelativeDaysModalVisible(true);
+          }}>
+          <Text
+            style={
+              styles.filterButtonText
+            }>{`Últimos ${relativeDays} dias`}</Text>
+          <Icon
+            name="keyboard-arrow-down"
+            size={20}
+            color={Colors.champagneDark}
+          />
+        </TouchableOpacity>
+        <RelativeDaysModal
+          isVisible={relativeDaysModalVisible}
+          onConfirm={onRelativeDaysPress}
+          onCancel={onRelativeDaysClosePress}
+        />
       </View>
-      <EntrySummary entriesGrouped={entriesGrouped} />
-      <EntryList entries={entries} />
-      <Button title="Salvar" />
-      <Button title="Fechar" />
+      <ScrollView>
+        <EntrySummary />
+        <EntryList days={relativeDays} category={category} />
+      </ScrollView>
+      <ActionFooter>
+        <ActionPrimaryButton
+          title="Fechar"
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+      </ActionFooter>
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
+    backgroundColor: Colors.background,
+    // padding: 10,
+  },
+  filtersContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: 12,
+  },
+  filterButton: {
+    flexDirection: 'row',
+    borderColor: Colors.champagneDark,
+    borderWidth: 2,
+    borderRadius: 30,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginHorizontal: 5,
+  },
+  filterButtonText: {
+    color: Colors.champagneDark,
   },
 });
 

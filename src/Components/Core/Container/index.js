@@ -25,7 +25,11 @@ const Container = ({
             <TouchableOpacity
               style={styles.actionButton}
               onPress={onPressActionButton}>
-              <Icon name="insert-chart" size={13} style={styles.actionButtonIcon} />
+              <Icon
+                name="insert-chart"
+                size={13}
+                style={styles.actionButtonIcon}
+              />
               <Text style={styles.actionButtonText}>{actionButtonText}</Text>
             </TouchableOpacity>
           )}

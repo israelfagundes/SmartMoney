@@ -23,18 +23,17 @@ const BalanceLabel = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    padding: 20,
   },
   label: {
     fontSize: 14,
     color: Colors.white,
-    marginTop: 40,
-    marginBottom: 10,
   },
   panel: {
-    paddingVertical: 8,
-    paddingHorizontal: 25,
     borderRadius: 10,
-    marginBottom: 80,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    marginVertical: 10,
   },
   value: {
     fontSize: 32,
