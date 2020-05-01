@@ -14,17 +14,21 @@ const BalancePanelLabel = ({currentBalance}) => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     alignItems: 'center',
+    // paddingVertical: 30,
   },
 
   label: {
     fontSize: 14,
+    marginTop: 46,
     color: Colors.white,
+    position: 'relative',
+    top: -15
   },
 
   value: {
-    fontSize: 36,
+    zIndex: 2,
+    fontSize: 56,
     color: Colors.white,
   },
 })

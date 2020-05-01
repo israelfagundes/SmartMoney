@@ -94,7 +94,7 @@ const Report = ({navigation}) => {
         />
       </View>
       <ScrollView>
-        <EntrySummary />
+        <EntrySummary days={relativeDays} />
         <EntryList
           days={relativeDays}
           category={category}

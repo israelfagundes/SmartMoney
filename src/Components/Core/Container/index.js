@@ -60,6 +60,8 @@ const styles = StyleSheet.create({
   actionContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
   },
   actionLabel: {
     fontSize: 12,
@@ -68,11 +70,12 @@ const styles = StyleSheet.create({
   actionButton: {
     justifyContent: 'center',
     flexDirection: 'row',
+    alignItems: 'center',
   },
   actionButtonIcon: {
     color: Colors.metal,
-    marginTop: 2,
     marginRight: 3,
+    marginTop: 2,
   },
   actionButtonText: {
     fontSize: 12,
