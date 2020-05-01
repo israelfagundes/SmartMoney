@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     elevation: 7,
     marginTop: -25,
     marginRight: 15,
+    zIndex: 99,
   },
 });
 

@@ -10,6 +10,7 @@ import BalanceLabel from '../../Components/BalanceLabel';
 import NewEntryInput from './NewEntryInput';
 import NewEntryCategoryPicker from './NewEntryCategoryPicker';
 import NewEntryDatePicker from './NewEntryDatePicker';
+import NewEntryAddressPicker from './NewEntryAddressPicker';
 import NewEntryDeleteAction from './NewEntryDeleteAction';
 
 import useEntries from '../../Hooks/useEntries';
@@ -30,6 +31,9 @@ const NewEntry = ({navigation}) => {
   const [amount, setAmount] = useState(entry.amount);
   const [category, setCategory] = useState(entry.category);
   const [entryAt, setEntryAt] = useState(entry.entryAt);
+  const [address, setAddress] = useState(entry.address);
+  const [latitude, setLatitude] = useState(entry.latitude);
+  const [longitude, setLongitude] = useState(entry.longitude);
 
   const isValid = () => {
     if (parseFloat(amount) !== 0) {
@@ -43,6 +47,9 @@ const NewEntry = ({navigation}) => {
     const data = {
       amount: parseFloat(amount),
       category: category,
+      address: address,
+      latitude: latitude,
+      longitude: longitude,
       entryAt: entryAt,
     };
     console.log('NewEntry :: save ', data);
@@ -76,6 +83,14 @@ const NewEntry = ({navigation}) => {
 
         <View style={styles.formActionContainer}>
           <NewEntryDatePicker value={entryAt} onChange={setEntryAt} />
+          <NewEntryAddressPicker
+            address={address}
+            onChange={({latitude, longitude, address}) => {
+              setLatitude(latitude);
+              setLongitude(longitude);
+              setAddress(address);
+            }}
+          />
           <NewEntryDeleteAction entry={entry} onOkPress={onDelete} />
         </View>
       </View>
