@@ -1,18 +1,20 @@
 import {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native'
 
 import {getBalance} from '../services/Balance';
 
 const useBalance = () => {
+  const navigation = useNavigation();
   const [balance, setBalance] = useState();
 
   useEffect(() => {
-    async function loadBalance() {
-      const value = await getBalance();
-      setBalance(value);
-    };
+    const loadBalance = navigation.addListener('focus', async () => {
+      const data = await getBalance();
+      setBalance(data); 
+    });
 
-    loadBalance();
-  }, []);
+    return loadBalance;
+  }, [navigation]);
 
   return [balance];
 };

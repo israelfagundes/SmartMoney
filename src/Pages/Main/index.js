@@ -15,12 +15,7 @@ const Main = ({navigation}) => {
         <EntrySummary
           onPressActionButton={() => navigation.navigate('Report')}
         />
-        <EntryList
-          onEntryPress={(entry) =>
-            navigation.navigate('NewEntry', {entry: entry})
-          }
-          onPressActionButton={() => navigation.navigate('Report')}
-        />
+        <EntryList />
       </ScrollView>
     </View>
   );

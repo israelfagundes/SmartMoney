@@ -4,14 +4,17 @@ import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import Svg, {Circle, Rect} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import Currency from '../../Core/Currency';
+import moment from '../../../vendors/moment';
+
 import Colors from '../../../styles/Colors';
 
 const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
-  const bulletLineY = isFirstItem ? 25 : 0;
-  const bulletLineHeight = isLastItem ? 25 : 50;
+  const bulletLineY = isFirstItem ? 30 : 0;
+  const bulletLineHeight = isLastItem ? 30 : 60;
   const showBulletLine = !(isFirstItem && isLastItem);
   const bulletColor = entry.category.color || Colors.white;
-  const date = entry.entryAt.toString();
+  const date = moment(entry.entryAt).calendar();
 
   return (
     <TouchableOpacity
@@ -19,8 +22,8 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
         onEntryPress && onEntryPress(entry);
       }}>
       <View style={styles.container}>
-        <View style={styles.bullet}>
-          <Svg height="50" width="50">
+        <View>
+          <Svg height="60" width="50">
             {showBulletLine && (
               <Rect
                 x="24"
@@ -33,7 +36,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
 
             <Circle
               cx="25"
-              cy="25"
+              cy="30"
               r={8}
               stroke={Colors.background}
               fill={bulletColor}
@@ -56,7 +59,9 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
         </View>
 
         <View style={styles.amount}>
-          <Text style={styles.amountText}>{entry.amount}</Text>
+          <Text style={styles.amountText}>
+            <Currency value={entry.amount} />
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -67,8 +72,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
+    justifyContent: 'center',
   },
-  bullet: {},
   description: {
     flex: 1,
     justifyContent: 'center',
@@ -104,6 +109,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     color: Colors.white,
+    position: 'relative',
+    top: -9,
   },
 });
 

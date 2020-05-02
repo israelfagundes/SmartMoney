@@ -18,24 +18,27 @@ import useEntries from '../../Hooks/useEntries';
 
 import Colors from '../../styles/Colors';
 
-const NewEntry = ({navigation}) => {
-  const entry = navigation.getParam('entry', {
-    id: null,
-    amount: '0.00',
-    entryAt: new Date(),
-    photo: null,
-    address: null,
-    latitude: null,
-    longitude: null,
-    category: {id: null, name: 'Selecione'},
-  });
+const NewEntry = ({route, navigation}) => {
+  const entry = route.params?.entry
+    ? route.params.entry
+    : {
+        id: null,
+        amount: '0.00',
+        photo: null,
+        address: null,
+        latitude: null,
+        longitude: null,
+        category: {id: null, name: 'Selecione'},
+      };
 
   const [, saveEntry, deleteEntry] = useEntries();
-  
+
   const [debit, setDebit] = useState(entry.amount <= 0);
   const [amount, setAmount] = useState(entry.amount);
   const [category, setCategory] = useState(entry.category);
-  const [entryAt, setEntryAt] = useState(entry.entryAt);
+  const [entryAt, setEntryAt] = useState(
+    entry.entryAt ? new Date(entry.entryAt) : new Date()
+  );
   const [photo, setPhoto] = useState(entry.photo);
   const [address, setAddress] = useState(entry.address);
   const [latitude, setLatitude] = useState(entry.latitude);
@@ -51,6 +54,7 @@ const NewEntry = ({navigation}) => {
 
   const onSave = () => {
     const data = {
+      id: entry.id,
       amount: parseFloat(amount),
       category: category,
       photo: photo,
@@ -60,7 +64,7 @@ const NewEntry = ({navigation}) => {
       entryAt: entryAt,
     };
     console.log('NewEntry :: save ', data);
-    saveEntry(data, entry);
+    saveEntry(data);
     onClose();
   };
 

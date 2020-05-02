@@ -1,18 +1,21 @@
-import {useState, useEffect} from 'react';
+import {useCallback, useState} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 
 import {getBalanceSumByDate} from '../services/Balance';
 
 const useBalanceSumByDate = (days = 7) => {
   const [balanceSum, setBalanceSum] = useState([]);
 
-  useEffect(() => {
-    async function loadBalanceSumByDate() {
-      const data = await getBalanceSumByDate(days);
-      setBalanceSum([...data]);
-    }
+  useFocusEffect(
+    useCallback(() => {
+      const loadBalanceSumByDate = async () => {
+        const data = await getBalanceSumByDate(days);
+        setBalanceSum([...data]);
+      };
 
-    loadBalanceSumByDate();
-  }, [days]);
+      loadBalanceSumByDate();
+    }, [days]),
+  );
 
   return [balanceSum];
 }
