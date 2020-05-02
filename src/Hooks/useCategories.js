@@ -15,19 +15,23 @@ const useCategories = () => {
 
   useEffect(() => {
     const loadDebitCategories = async () => {
-      setDebitCategories(await getDebitCategories());
+      const data = await getDebitCategories();
+      setDebitCategories(data);
     };
 
     const loadCreditCategories = async () => {
-      setCreditCategories(await getCreditCategories());
+      const data = await getCreditCategories();
+      setCreditCategories(data);
     };
 
     const loadAllCategories = async () => {
-      setAllCategories(await getAllCategories());
+      const data = await getAllCategories();
+      setAllCategories(data);
     };
 
     const loadInitCategories = async () => {
-      setInitCategories(await getInitCategories());
+      const data = await getInitCategories();
+      setInitCategories(data['0']);
     };
 
     loadDebitCategories();

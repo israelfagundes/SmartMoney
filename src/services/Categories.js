@@ -5,6 +5,13 @@ export const getDefaultCategories = () => {
   return [
     {
       id: getUUID(),
+      name: 'Saldo Inicial',
+      color: '#27ae60',
+      isInit: true,
+      order: 5,
+    },
+    {
+      id: getUUID(),
       name: 'Alimentação',
       color: '#f1c40f',
       isDebit: true,
@@ -123,13 +130,6 @@ export const getDefaultCategories = () => {
       isCredit: true,
       order: 4,
     },
-    {
-      id: getUUID(),
-      name: 'Saldo Inicial',
-      color: '#27ae60',
-      isInit: true,
-      order: 5,
-    },
   ];
 };
 
@@ -156,5 +156,5 @@ export const getCreditCategories = async () => {
 
 export const getInitCategories = async () => {
   const realm = await getRealm();
-  return realm.objects('Category').filtered('isInit = false').sorted('order');
+  return realm.objects('Category').filtered('isInit = true').sorted('order');
 }
