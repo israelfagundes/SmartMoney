@@ -2,7 +2,7 @@ import React from 'react';
 import {Alert, View, TouchableOpacity, StyleSheet} from 'react-native';
 
 import Geolocation from '@react-native-community/geolocation';
-import Geocoder from 'react-native-geocoding';
+import Geocoder from 'react-native-geocoding'; 
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 

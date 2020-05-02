@@ -81,6 +81,8 @@ target 'SmartMoney' do
 
   pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker'
 
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
   target 'SmartMoneyTests' do
     inherit! :complete
     # Pods for testing
