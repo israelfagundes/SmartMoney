@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    fontSize: 14,
-    marginTop: 46,
+    fontSize: 16,
+    marginTop: 44,
     color: Colors.white,
     position: 'relative',
     top: -15
