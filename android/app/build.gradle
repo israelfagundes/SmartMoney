@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.smartmoney"
+        applicationId "br.com.samsepi0l.smartmoney"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
