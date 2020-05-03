@@ -31,11 +31,11 @@ export const getEntries = async (days, category) => {
   return entries;
 };
 
-export const saveEntry = async (entry) => {
+export const saveEntry = async entry => {
   const realm = await getRealm();
   let data = {};
 
-  console.log('saveEntry :: value ', JSON.stringify(entry));
+  console.log('saveEntry :: value: ', JSON.stringify(entry));
 
   try {
     const category = realm
@@ -45,13 +45,13 @@ export const saveEntry = async (entry) => {
       data = {
         id: entry.id || getUUID(),
         amount: entry.amount || 0,
-        entryAt: entry.entryAt,
+        entryAt: entry.entryAt || new Date() ,
         description: entry.category.name,
         photo: entry.photo,
         address: entry.address,
         latitude: entry.latitude,
         longitude: entry.longitude,
-        isInit: entry.isinit || false,
+        isInit: entry.isInit || false,
         category: category,
       };
 
@@ -60,7 +60,11 @@ export const saveEntry = async (entry) => {
 
     console.log('saveEntry :: data: ', JSON.stringify(data));
   } catch (error) {
-    console.error('saveEntry :: error on save object ', JSON.stringify(data));
+    console.error(
+      'saveEntry :: error on save object: ',
+      JSON.stringify(data),
+      JSON.stringify(error),
+    );
     Alert.alert('Erro ao salvar os dados de lançamento.');
   }
 
