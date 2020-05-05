@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  StatusBar,
   View,
   Modal,
   FlatList,
@@ -18,32 +19,35 @@ const CategoryModal = ({categoryType, isVisible, onConfirm, onCancel}) => {
   const [debitCategories, creditCategories, allCategories] = useCategories();
 
   return (
-    <Modal animationType="slide" transparent={false} visible={isVisible}>
-      <View style={styles.modal}>
-        <FlatList
-          data={
-            categoryType === 'all'
-              ? allCategories
-              : categoryType === 'debit'
-              ? debitCategories
-              : creditCategories
-          }
-          keyExtractor={(item) => item.id}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              onPress={() => onConfirm(item)}
-              style={styles.modalItem}>
-              <Text style={[styles.modalItemText, {color: item.color}]}>
-                {item.name}
-              </Text>
-            </TouchableOpacity>
-          )}
-        />
-        <ActionFooter>
-          <ActionPrimaryButton title="Fechar" onPress={onCancel} />
-        </ActionFooter>
-      </View>
-    </Modal>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor={Colors.asphalt} />
+      <Modal animationType="slide" transparent={false} visible={isVisible}>
+        <View style={styles.modal}>
+          <FlatList
+            data={
+              categoryType === 'all'
+                ? allCategories
+                : categoryType === 'debit'
+                ? debitCategories
+                : creditCategories
+            }
+            keyExtractor={(item) => item.id}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                onPress={() => onConfirm(item)}
+                style={styles.modalItem}>
+                <Text style={[styles.modalItemText, {color: item.color}]}>
+                  {item.name}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+          <ActionFooter>
+            <ActionPrimaryButton title="Fechar" onPress={onCancel} />
+          </ActionFooter>
+        </View>
+      </Modal>
+    </>
   );
 };
 
@@ -64,6 +68,7 @@ const styles = StyleSheet.create({
   modalItemText: {
     color: Colors.white,
     textAlign: 'center',
+    fontFamily: 'Lato Regular',
     fontSize: 22,
   },
 });

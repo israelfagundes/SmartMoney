@@ -50,11 +50,12 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingHorizontal: 25,
     paddingBottom: 10,
+    maxHeight: '100%'
   },
   title: {
     fontSize: 13,
+    fontFamily: 'Lato Bold',
     color: Colors.white,
-    fontWeight: '700',
     marginBottom: 10,
   },
   actionContainer: {
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
   },
   actionLabel: {
     fontSize: 12,
+    fontFamily: 'Lato Regular',
     color: Colors.metal,
   },
   actionButton: {
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
   },
   actionButtonText: {
     fontSize: 12,
+    fontFamily: 'Lato Regular',
     color: Colors.metal,
   },
 });

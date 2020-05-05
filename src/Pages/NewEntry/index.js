@@ -37,7 +37,7 @@ const NewEntry = ({route, navigation}) => {
   const [amount, setAmount] = useState(entry.amount);
   const [category, setCategory] = useState(entry.category);
   const [entryAt, setEntryAt] = useState(
-    entry.entryAt ? new Date(entry.entryAt) : new Date()
+    entry.entryAt ? new Date(entry.entryAt) : new Date(),
   );
   const [photo, setPhoto] = useState(entry.photo);
   const [address, setAddress] = useState(entry.address);
@@ -125,11 +125,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
     padding: 10,
+    paddingTop: 30,
   },
 
   formContainer: {
     flex: 1,
-    paddingVertical: 20,
+    marginTop: 60
   },
 
   formActionContainer: {

@@ -39,13 +39,14 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
     fontSize: 13,
+    fontFamily: 'Lato Regular',
     color: Colors.white,
     marginLeft: 7,
   },
   value: {
     fontSize: 13,
+    fontFamily: 'Lato Bold',
     color: Colors.white,
-    fontWeight: 'bold'
   },
 });
 

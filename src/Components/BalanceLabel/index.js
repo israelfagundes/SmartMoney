@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
+    fontFamily: 'Lato Bold',
     color: Colors.white,
   },
   panel: {
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
   },
   value: {
     fontSize: 32,
+    fontFamily: 'Lato Regular',
     color: Colors.white,
   },
 });

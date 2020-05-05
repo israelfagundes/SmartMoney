@@ -52,7 +52,9 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
             {entry.address && (
               <>
                 <Icon style={styles.addressIcon} name="location-on" size={15} />
-                <Text style={styles.addressText}>{entry.address}</Text>
+                <Text numberOfLines={1} style={styles.addressText}>
+                  {entry.address}
+                </Text>
               </>
             )}
           </View>
@@ -70,7 +72,6 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
   },
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
   },
   descriptionText: {
     fontSize: 14,
+    fontFamily: 'Lato Regular',
     color: Colors.white,
   },
   details: {
@@ -90,7 +92,9 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   entryAtText: {
+    marginTop: 1,
     fontSize: 12,
+    fontFamily: 'Lato Regular',
     color: Colors.metal,
   },
   addressIcon: {
@@ -99,7 +103,9 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   addressText: {
+    marginTop: 1,
     fontSize: 12,
+    fontFamily: 'Lato Regular',
     color: Colors.metal,
   },
   amount: {
@@ -107,7 +113,7 @@ const styles = StyleSheet.create({
   },
   amountText: {
     fontSize: 14,
-    fontWeight: 'bold',
+    fontFamily: 'Lato Bold',
     color: Colors.white,
     position: 'relative',
     top: -9,

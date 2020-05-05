@@ -40,9 +40,11 @@ const Welcome = ({navigation}) => {
       <View>
         <WelcomeMessage />
         <WelcomeBalanceInput value={value} onChangeValue={setValue} />
-        <ActionFooter>
-          <ActionPrimaryButton title="Continuar" onPress={onSavePress} />
-        </ActionFooter>
+        <View style={styles.action}>
+          <ActionFooter>
+            <ActionPrimaryButton title="Continuar" onPress={onSavePress} />
+          </ActionFooter>
+        </View>
       </View>
     </View>
   );
@@ -60,6 +62,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
   },
+  action: {
+    marginTop: 20,
+  }
 });
 
 export default Welcome;

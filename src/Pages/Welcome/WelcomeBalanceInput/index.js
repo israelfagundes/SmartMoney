@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   label: {
     color: Colors.white,
     fontSize: 26,
+    fontFamily: 'Lato Regular',
     textAlign: 'center',
     marginBottom: 10,
   },

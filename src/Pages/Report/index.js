@@ -95,13 +95,16 @@ const Report = ({navigation}) => {
         />
       </View>
       <EntrySummary days={relativeDays} />
-      <EntryList
-        days={relativeDays}
-        category={category}
-        onEntryPress={(entry) =>
-          navigation.navigate('NewEntry', {entry: entry})
-        }
-      />
+      <View style={styles.listContainer}>
+        <EntryList
+          days={relativeDays}
+          category={category}
+          onEntryPress={(entry) =>
+            navigation.navigate('NewEntry', {entry: entry})
+          }
+        />
+      </View>
+
       <ActionFooter>
         <ActionPrimaryButton
           title="Fechar"
@@ -117,7 +120,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
-    // padding: 10,
+    paddingTop: 30
   },
   filtersContainer: {
     flexDirection: 'row',
@@ -132,9 +135,16 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     marginHorizontal: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   filterButtonText: {
+    fontFamily: 'Lato Regular',
     color: Colors.champagneDark,
+  },
+  listContainer: {
+    flex: 1,
+    marginBottom: 5,
   },
 });
 

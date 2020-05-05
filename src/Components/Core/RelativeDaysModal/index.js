@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  StatusBar,
   Modal,
   View,
   FlatList,
@@ -17,6 +18,7 @@ const RelativeDaysModal = ({isVisible, onConfirm, onCancel}) => {
 
   return (
     <Modal animationType="slide" transparent={false} visible={isVisible}>
+      <StatusBar barStyle="light-content" backgroundColor={Colors.background} />
       <View style={styles.modal}>
         <FlatList
           data={relativeDays}
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
   modalItemText: {
     color: Colors.white,
     textAlign: 'center',
+    fontFamily: 'Lato Regular',
     fontSize: 22,
   },
 });

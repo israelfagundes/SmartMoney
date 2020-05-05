@@ -30,7 +30,7 @@ export const ActionSecondaryButton = ({title, onPress}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.background,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   inner: {
     flexDirection: 'row',
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   primaryButtonText: {
     textAlign: 'center',
     color: Colors.green,
+    fontFamily: 'Lato Regular',
     fontSize: 16,
   },
   secondaryButton: {
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
   secondaryButtonText: {
     textAlign: 'center',
     color: Colors.white,
+    fontFamily: 'Lato Regular',
     fontSize: 16,
   },
 });

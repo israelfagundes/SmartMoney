@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   pickerButtonText: {
     color: Colors.white,
     textAlign: 'center',
+    fontFamily: 'Lato Regular',
     fontSize: 28,
   },
 });

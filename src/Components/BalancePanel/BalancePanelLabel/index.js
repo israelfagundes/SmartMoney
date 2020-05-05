@@ -19,12 +19,12 @@ const BalancePanelLabel = ({currentBalance}) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    // paddingVertical: 30,
   },
 
   label: {
     fontSize: 16,
-    marginTop: 44,
+    fontFamily: 'Lato Regular',
+    marginTop: 50,
     color: Colors.white,
     position: 'relative',
     top: -15
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   value: {
     zIndex: 2,
     fontSize: 56,
+    fontFamily: 'Lato Regular',
     color: Colors.white,
   },
 })

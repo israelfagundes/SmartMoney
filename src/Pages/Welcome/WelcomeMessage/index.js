@@ -19,12 +19,14 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     fontSize: 38,
+    fontFamily: 'Lato Regular',
     textAlign: 'center',
     marginTop: 40,
   },
   message: {
     color: Colors.white,
     fontSize: 22,
+    fontFamily: 'Lato Regular',
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 40,

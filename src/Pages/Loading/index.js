@@ -9,12 +9,15 @@ const Loading = ({navigation}) => {
   useEffect(() => {
     async function makeRedirect() {
       (await isInitialized())
-        ? navigation.navigate('Main')
+        ? navigation.reset({
+            index: 0,
+            routes: [{name: 'Main'}],
+          })
         : navigation.navigate('Welcome');
     }
 
     makeRedirect();
-  }, []);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>

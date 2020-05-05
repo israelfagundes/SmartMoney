@@ -85,19 +85,19 @@ const styles = StyleSheet.create({
   },
   debitButtonPrefix: {
     fontSize: 38,
-    fontWeight: 'bold',
+    fontFamily: 'Lato Bold',
     color: Colors.white,
   },
   debitButtonText: {
     fontSize: 38,
-    fontWeight: 'bold',
+    fontFamily: 'Lato Bold',
     color: Colors.white,
   },
   input: {
     flex: 1,
     textAlign: 'right',
     fontSize: 38,
-    fontWeight: 'bold',
+    fontFamily: 'Lato Bold',
     color: Colors.white,
     paddingVertical: 24,
   },
