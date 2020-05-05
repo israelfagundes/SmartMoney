@@ -4,7 +4,6 @@ import {
   View,
   TouchableOpacity,
   Text,
-  ScrollView,
   StyleSheet,
 } from 'react-native';
 
@@ -95,16 +94,14 @@ const Report = ({navigation}) => {
           onCancel={onRelativeDaysClosePress}
         />
       </View>
-      <ScrollView>
-        <EntrySummary days={relativeDays} />
-        <EntryList
-          days={relativeDays}
-          category={category}
-          onEntryPress={(entry) =>
-            navigation.navigate('NewEntry', {entry: entry})
-          }
-        />
-      </ScrollView>
+      <EntrySummary days={relativeDays} />
+      <EntryList
+        days={relativeDays}
+        category={category}
+        onEntryPress={(entry) =>
+          navigation.navigate('NewEntry', {entry: entry})
+        }
+      />
       <ActionFooter>
         <ActionPrimaryButton
           title="Fechar"

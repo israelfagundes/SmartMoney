@@ -17,7 +17,10 @@ const BalancePanel = ({onNewEntryPress}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={Colors.violetLight} />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={Colors.violetLight}
+      />
       <LinearGradient
         colors={[Colors.violetLight, Colors.seaBlue]}
         style={styles.panel}>
