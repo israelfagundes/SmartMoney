@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   action: {
     marginTop: 20,
-  }
+  },
 });
 
 export default Welcome;

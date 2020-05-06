@@ -10,6 +10,7 @@ const InputMoney = ({
   startWithDebit = true,
   onChangeDebit,
   onChangeValue,
+  isValid,
 }) => {
   const setDefaultDebit = () => {
     if (value === 0) {
@@ -45,7 +46,7 @@ const InputMoney = ({
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, isValid ? '' : styles.notValid]}>
       <TouchableOpacity
         style={styles.debitButton}
         onPress={onChangeDebitCredit}>
@@ -78,6 +79,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.asphalt,
     borderRadius: 10,
     paddingHorizontal: 20,
+    borderWidth: 1,
+    borderColor: Colors.asphalt,
+  },
+  notValid: {
+    borderColor: Colors.danger,
   },
   debitButton: {
     flexDirection: 'row',

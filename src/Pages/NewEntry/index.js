@@ -43,14 +43,18 @@ const NewEntry = ({route, navigation}) => {
   const [address, setAddress] = useState(entry.address);
   const [latitude, setLatitude] = useState(entry.latitude);
   const [longitude, setLongitude] = useState(entry.longitude);
+  const [validCategory, setValidCategory] = useState(true);
+  const [validInput, setValidInput] = useState(true);
 
   const isValid = () => {
-    if (parseFloat(amount) !== 0) {
+    if (parseFloat(amount) !== 0 && category.id !== null) {
       return true;
     }
 
+    setValidInput(false);
+    setValidCategory(false);
     return false;
-  };
+  }
 
   const onSave = () => {
     const data = {
@@ -86,11 +90,13 @@ const NewEntry = ({route, navigation}) => {
           value={amount}
           onChangeValue={setAmount}
           onChangeDebit={setDebit}
+          isValid={validInput}
         />
         <NewEntryCategoryPicker
           debit={debit}
           category={category}
           onChangeCategory={setCategory}
+          isValid={validCategory}
         />
 
         <View style={styles.formActionContainer}>
@@ -130,7 +136,7 @@ const styles = StyleSheet.create({
 
   formContainer: {
     flex: 1,
-    marginTop: 60
+    marginTop: 60,
   },
 
   formActionContainer: {

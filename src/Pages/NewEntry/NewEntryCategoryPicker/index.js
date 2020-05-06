@@ -5,7 +5,12 @@ import CategoryModal from '../../../Components/CategoryModal';
 
 import Colors from '../../../styles/Colors';
 
-const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
+const NewEntryCategoryPicker = ({
+  debit,
+  category,
+  onChangeCategory,
+  isValid,
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const onCategoryPress = (item) => {
@@ -20,7 +25,7 @@ const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
   return (
     <View>
       <TouchableOpacity
-        style={styles.pickerButton}
+        style={[styles.pickerButton, isValid ? '' : styles.notValid]}
         onPress={() => {
           setModalVisible(true);
         }}>
@@ -44,6 +49,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 25,
     marginVertical: 35,
+    borderWidth: 1,
+    borderColor: Colors.asphalt,
+  },
+  notValid: {
+    borderColor: Colors.danger,
   },
   pickerButtonText: {
     color: Colors.white,
