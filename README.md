@@ -20,7 +20,7 @@ Smart Money
 
 <br/>
 
-# Screenshots
+# :camera: Screenshots
 
 <div align="center">
   <img src="github/screen1.jpeg" alt="Main Screen" height="425">   <img src="github/screen2.jpeg" alt="New Entry" height="425">   <img src="github/screen3.jpeg" alt="Report" height="425">
