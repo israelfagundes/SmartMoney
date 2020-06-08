@@ -5,8 +5,7 @@ import InputMoney from '../../../Components/Core/InputMoney';
 
 import Colors from '../../../styles/Colors';
 
-const WelcomeBalanceInput = ({value, onChangeValue}) => {
-  
+const WelcomeBalanceInput = ({value, onChangeValue, isValid}) => {
   return (
     <View>
       <Text style={styles.label}>Informe o seu saldo</Text>
@@ -14,6 +13,7 @@ const WelcomeBalanceInput = ({value, onChangeValue}) => {
         value={value}
         onChangeValue={onChangeValue}
         startWithDebit={false}
+        isValid={isValid}
       />
     </View>
   );

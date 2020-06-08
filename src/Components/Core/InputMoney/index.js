@@ -53,6 +53,10 @@ const InputMoney = ({
         <Text style={styles.debitButtonText}>R$</Text>
       </TouchableOpacity>
       <TextInputMask
+        customTextInputProps={{
+          position: 'absolute',
+          top: 0,
+        }}
         style={styles.input}
         type={'money'}
         options={{

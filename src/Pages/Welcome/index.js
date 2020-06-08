@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StatusBar, View, Image, StyleSheet} from 'react-native';
 
 import ActionFooter, {
@@ -21,6 +21,10 @@ const Welcome = ({navigation}) => {
   const [value, setValue] = useState(0);
 
   const onSavePress = () => {
+    if (value === 0) {
+      return;
+    }
+
     saveEntry({
       amount: parseFloat(value),
       isInit: true,
@@ -28,6 +32,10 @@ const Welcome = ({navigation}) => {
     });
 
     setInitialized();
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Main'}],
+    });
     navigation.navigate('Main');
   };
 
@@ -39,7 +47,11 @@ const Welcome = ({navigation}) => {
       </View>
       <View>
         <WelcomeMessage />
-        <WelcomeBalanceInput value={value} onChangeValue={setValue} />
+        <WelcomeBalanceInput
+          isValid={value !== 0 ? true : false}
+          value={value}
+          onChangeValue={setValue}
+        />
         <View style={styles.action}>
           <ActionFooter>
             <ActionPrimaryButton title="Continuar" onPress={onSavePress} />

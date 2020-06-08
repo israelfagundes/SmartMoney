@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     maxHeight: '40%',
-  }
+  },
 });
 
 export default Main;

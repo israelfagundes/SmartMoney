@@ -13,7 +13,10 @@ const Loading = ({navigation}) => {
             index: 0,
             routes: [{name: 'Main'}],
           })
-        : navigation.navigate('Welcome');
+        : navigation.reset({
+            index: 0,
+            routes: [{name: 'Welcome'}],
+          });
     }
 
     makeRedirect();
