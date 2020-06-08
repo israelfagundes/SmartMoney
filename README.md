@@ -8,7 +8,7 @@ Smart Money
 
 <br/>
 
-<p align="center">Bem vindo ao Smart Money - seu aplicativo de controle de finanças pessoais.</p>
+<p align="center"> :money_with_wings: Bem vindo ao Smart Money - seu aplicativo de controle de finanças pessoais. :money_with_wings: </p>
 
 <br/>
 
@@ -31,33 +31,33 @@ Smart Money
 ### Esse app foi desenvolvido com:
 
 - ⚛️ **React Native**
-- :ciclone: **RealmDB**
+- :ocean: **RealmDB**
 
-## Funcionalidades
+## :gear: Funcionalidades
 
-### Gastos e Ganhos
+### :chart: Gastos e Ganhos
 - Controle financeiro não se trata apenas de gastos. Você decide o tipo de lançamento que quer fazer!
 
-### Calendário
+### :calendar: Calendário
 - Tem gastos programados para o futuro? Sem problemas! Escolha uma data personalizada para o seu lançamento!
 
-### Camera
+### :camera: Camera
 - Está receoso em esquecer de onde veio aquele gasto? Tire uma foto da nota fiscal, ou do estabelecimento em questão, e consulte sempre que precisar!
 
-### Localização
+### :earth_americas: Localização
 - Marcar o local do lançamento é o bastante pra você? Salve sua localização atual utilizando a funcionalidade de geolocalização!
 
-### Relatórios filtrados
+### :receipt:	Relatórios filtrados
 - Deseja ver seus lançamentos registrados na última semana? Ou quem sabe os do último mês? E que tal filtrar seus lançamentos por categorias? Você decide quais lançamentos visualizar no relatório.
 
-### Gráficos
+### :chart: Gráficos
 - Veja as estatísticas dos seus lançamentos através de gráficos! Os gráficos fazem um balanço dos lançamentos de maior valor nos últimos 7 dias.
 
-## Sobre o projeto
+## ⚛️ Sobre o projeto
 
 O Smart Money é um aplicativo que foi desenvolvido com a mentoria do professor [Felipe Fontoura](https://devsamurai.com.br/), no programa "Meu Primeiro Aplicativo", e tem como finalidade colocar em prática os conceitos aprendidos durante o curso. Durante o desenvolvimento da aplicação, pude colocar em prática os conceitos de **Componentes**, **React Navigation**, **Props**, **States**, **CRUD**, **Banco de dados NoSQL**, **UX/UI**, **Hooks**, **LogicHooks**, **Gráficos no React Native**, **Dispositivos (nesse aplicativo utilizamos câmera e geolocalização)**, e muitos outros.
 
-## Instalação
+## :iphone: Instalação
 
 1. Tenha certeza de que você tem um ambiente de desenvolvimento React Native básico configurado em seu computador ([Veja como configurar o seu ambiente de desenvolvimento](https://reactnative.dev/docs/environment-setup))
 
