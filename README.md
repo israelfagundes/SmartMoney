@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="./github/logo.png" alt="Ecoleta" width="200">
+  <img src="./github/logo.png" alt="Smart Money" width="200">
 <br>
 <br>
 Smart Money
